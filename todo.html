@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="Todo">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script src="todo.js"></script>
+</head>
+<body>
+<div>
+    <div ng-controller="TodoListCtrl">
+        search: <input ng-model="query"/>
+
+        <ul>
+            <li ng-repeat="todo in todos | filter:query">
+                <p>{{todo.name}}</p>
+                <button ng-click="removeTodo(todo)">done</button>
+            </li>
+        </ul>
+
+        <button ng-click="addTodo()">add</button>
+        <label>
+            <input ng-model="toBeAdded"/>
+        </label>
+    </div>
+
+</div>
+</body>
+</html>
